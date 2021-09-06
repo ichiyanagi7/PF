@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::SessionsController < Devise::SessionsController
+class Admins::SessionsController < Devise::SessionsController
   # before_action :configure_sign_in_params, only: [:create]
 
   # GET /resource/sign_in
@@ -24,15 +24,4 @@ class Users::SessionsController < Devise::SessionsController
   # def configure_sign_in_params
   #   devise_parameter_sanitizer.permit(:sign_in, keys: [:attribute])
   # end
-  
-    # ログイン後のリダイレクト先
-  def after_sign_up_path_for
-    root_path
-  end
-
-  # ログアウト後のリダイレクト先
-  def after_sign_out_path_for
-    sign_in_path
-  end
-  
 end

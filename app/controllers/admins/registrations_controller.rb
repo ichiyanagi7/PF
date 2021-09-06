@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class Users::RegistrationsController < Devise::RegistrationsController
+class Admins::RegistrationsController < Devise::RegistrationsController
   # before_action :configure_sign_up_params, only: [:create]
   # before_action :configure_account_update_params, only: [:update]
 
@@ -50,14 +50,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  # ログイン後のリダイレクト先
+  # The path used after sign up.
   # def after_sign_up_path_for(resource)
-  #   root_path
+  #   super(resource)
   # end
 
-  # 新規登録後のリダイレクト先
-  def after_inactive_sign_up_path_for
-    root_path
-  end
-
+  # The path used after sign up for inactive accounts.
+  # def after_inactive_sign_up_path_for(resource)
+  #   super(resource)
+  # end
 end
