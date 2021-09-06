@@ -1,5 +1,36 @@
 Rails.application.routes.draw do
 
+  namespace :admins do
+    get 'genres/index'
+  end
+  namespace :admins do
+    get 'mysteries/index'
+    get 'mysteries/show'
+    get 'mysteries/destroy'
+  end
+  namespace :admins do
+    get 'users/index'
+    get 'users/show'
+    get 'users/update'
+  end
+  get 'searches/search'
+  get 'reviews/complete'
+  get 'mysteries/show'
+  get 'mysteries/new'
+  get 'mysteries/create'
+  get 'mysteries/edit'
+  get 'mysteries/update'
+  get 'mysteries/destroy'
+  get 'mysteries/answer'
+  get 'relationships/create'
+  get 'relationships/destroy'
+  get 'relationships/followings'
+  get 'relationships/followers'
+  get 'users/show'
+  get 'users/edit'
+  get 'users/update'
+  get 'users/unsubscribe'
+  get 'users/withdraw'
   devise_for :admins,skip:[:sessions],:controllers =>{
     :passwords => "admins/passwords"
   }
