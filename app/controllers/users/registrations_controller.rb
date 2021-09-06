@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class Users::RegistrationsController < Devise::RegistrationsController
-  # before_action :configure_sign_up_params, only: [:create]
+  before_action :configure_sign_up_params, if: :devise_controller?
   # before_action :configure_account_update_params, only: [:update]
 
   # GET /resource/sign_up
@@ -38,12 +38,12 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super
   # end
 
-  # protected
+  protected
 
-  # If you have extra params to permit, append them to the sanitizer.
-  # def configure_sign_up_params
-  #   devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute])
-  # end
+  # サインアップ時に保存できるカラム
+  def configure_sign_up_params
+    devise_parameter_sanitizer.permit(:sign_up, keys: [:attribute,:name,:introduction,:image_id])
+  end
 
   # If you have extra params to permit, append them to the sanitizer.
   # def configure_account_update_params
@@ -51,13 +51,13 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # ログイン後のリダイレクト先
-  # def after_sign_up_path_for(resource)
-  #   root_path
-  # end
+  def after_sign_up_path_for(resource)
+    root_path(resource)
+  end
 
   # 新規登録後のリダイレクト先
-  def after_inactive_sign_up_path_for
-    root_path
-  end
+  # def after_inactive_sign_up_path_for
+  #   root_path
+  # end
 
 end
