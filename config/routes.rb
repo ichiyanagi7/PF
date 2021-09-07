@@ -37,7 +37,7 @@ Rails.application.routes.draw do
   resources :users,only:[:show,:edit,:update]
 
   get "mysteries/:id/answer",to: "mystereies#answer"
-  resources :mysteries,except:[:index] do
+  resources :mysteries do
     # コメント機能
     resources :comments,only:[:create,:destroy]
     # レビュー機能

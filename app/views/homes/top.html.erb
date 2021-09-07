@@ -1,8 +1,35 @@
 <div class="container">
   <div class="row">
-    <div class="col-12">
-      <h1>Topページです</h1>
-      <%= link_to "ログアウト",sign_out_path ,method: :delete %>
+    <div class="col-sm-12 border-bottom">
+      <h1 class="text-center my-5">ミステリオ</h1>
+      <% if user_signed_in? %>
+      <h4 class="text-center mb-5">
+        ようこそ <%= current_user.name %> さん!!
+      </h4>
+      <% else %>
+      <h4 class="text-center mb-5">
+        このサイトで遊ぶためにはログインが必要です。<br>
+        登録がお済みでない方は新規登録をお願いします。
+      </h4>
+      <% end %>
     </div>
+
+    <div class="col-sm-12 text-right my-5">
+      <%= link_to "もっと謎を探す", mysteries_path,class:"text-dark" %>
+    </div>
+
+    <% @mysteries.each do |mystery| %>
+      <div class="col-sm-4">
+        <%= link_to mystery_path(mystery) do %>
+          <div class="card">
+            <%= image_tag mystery.question_image ,class:"card-img-top" %>
+            <div class="card-body">
+              <p class="card-text"><%= mystery.title %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
   </div>
 </div>

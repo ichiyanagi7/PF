@@ -1,2 +1,55 @@
-<h1>Mysteries#new</h1>
-<p>Find me in app/views/mysteries/new.html.erb</p>
+<div class="container">
+  <div class="row mb-3">
+    <h2><u>謎を投稿する</u></h2>
+  </div>
+  <span>※必須項目は必ず入力してください！</span>
+
+  <%= form_with model:@mystery,url:mysteries_path,method: :post,local:true do |f| %>
+  <div class="row mt-2">
+    <div class="col-sm-8 form-group">
+      <%= f.label :タイトル %><span class="small text-danger bg-warning ml-2">必須</span>
+      <%= f.text_field :title ,placeholder:"タイトルを入力" ,class:"form-control" %>
+    </div>
+
+    <div class="col-sm-8 form-group">
+      <%= f.label :ジャンル %><span class="small text-danger bg-warning ml-2">必須</span><br>
+      <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "-- 選択してください --" ,class:"form-control" %>
+    </div>
+
+    <div class="col-sm-8 form-group">
+      <%= f.label :問題文 %><span class="small text-danger bg-warning ml-2">必須</span>
+      <%= f.text_area :question ,placeholder:"ここに問題文を記入してください",class:"form-control" %>
+    </div>
+
+    <div class="col-sm-8 form-group">
+      <%= f.label :問題画像 %><span class="small text-danger bg-warning ml-2">必須</span><br>
+      <%= f.file_field :question_image ,class:"form-control-file" %>
+    </div>
+
+    <div class="col-sm-8 form-group">
+      <%= f.label :解答 %><span class="small text-danger bg-warning ml-2">必須</span><br>
+      <%= f.text_field :answer, placeholder:"答えのみを記入してください",class:"form-control" %>
+    </div>
+
+    <div class="col-sm-8 form-group">
+      <%= f.label :解答画像 %>
+      <%= f.file_field :answer_image ,class:"form-control-file" %>
+    </div>
+
+    <div class="col-sm-8 form-group">
+      <%= f.label :解説 %><br>
+      <%= f.text_area :description ,placeholder:"ここに解説を記入してください",class:"form-control" %>
+    </div>
+
+    <div class="col-sm-8 form-group">
+      <%= f.label :ヒント %><br>
+      <%= f.text_area :hint ,placeholder:"ヒントを記入してください",class:"form-control" %>
+    </div>
+
+    <div class="col-sm-8 form-group">
+      <%= f.submit "投稿",class:"px-5 btn btn-success btn-lg" %>
+    </div>
+  </div>
+  <% end %>
+
+</div>
