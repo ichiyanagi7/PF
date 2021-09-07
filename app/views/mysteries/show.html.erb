@@ -1,2 +1,31 @@
-<h1>Mysteries#show</h1>
-<p>Find me in app/views/mysteries/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-sm-12 mb-5">
+      <h1 class="under"><%= @mystery.title %></h1>
+      <h3>Q. <%= @mystery.question %></h3>
+    </div>
+
+    <div class="col-sm-9">
+      <%= image_tag @mystery.question_image.variant(resize:"800x1200") %>
+    </div>
+    <div class="col-sm-3">
+      <% if @mystery.hint.blank? %>
+      <p class="btn btn-outline-dark">ヒント</p>
+      <div class="mb-5">
+        <p class="text-nowrap">ごめんなさい、ヒントはありません。。。</p>
+      </div>
+      <% else %>
+      <p><a class="btn btn-primary toggle-btn" data-toggle="collapse" href="#hint" role="button">ヒント</a></p>
+      <div class="collapse mb-5" id="hint" data-parent="#hint">
+        <h4 class="text-nowrap"><%= @mystery.hint %></h4>
+      </div>
+      <% end %>
+
+      <p><a class="btn btn-danger toggle-btn" data-toggle="collapse" href="#answer" role="button">答え</a></p>
+      <div class="collapse" id="answer" data-parent="#answer">
+        <h4 class="text-nowrap"><%= @mystery.answer %></h4>
+      </div>
+    </div>
+
+  </div>
+</div>

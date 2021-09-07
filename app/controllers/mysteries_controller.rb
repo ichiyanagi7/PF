@@ -3,6 +3,7 @@ class MysteriesController < ApplicationController
   end
 
   def show
+    @mystery=Mystery.find(params[:id])
   end
 
   def new
@@ -11,6 +12,7 @@ class MysteriesController < ApplicationController
 
   def create
     mystery=Mystery.new(mystery_params)
+    mystery.user_id=current_user.id
     mystery.save
     redirect_to mystery_path(mystery)
   end

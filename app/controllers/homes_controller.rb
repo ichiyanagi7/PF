@@ -1,6 +1,6 @@
 class HomesController < ApplicationController
   def top
-    @mysteries=Mystery
+    @mysteries=Mystery.all
   end
 
   def about
