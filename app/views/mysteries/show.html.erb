@@ -23,7 +23,9 @@
 
       <p><a class="btn btn-danger toggle-btn" data-toggle="collapse" href="#answer" role="button">答え</a></p>
       <div class="collapse" id="answer" data-parent="#answer">
-        <h4 class="text-nowrap"><%= @mystery.answer %></h4>
+        <h4 class="text-nowrap mb-3">「<%= @mystery.answer %>」</h4>
+        <span>解説</span>
+        <p><%= @mystery.description %></p>
       </div>
     </div>
 
