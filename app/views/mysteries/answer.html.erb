@@ -5,28 +5,33 @@
     </div>
 
     <% if @mystery.answer_image.attached? %>
-      <div class="col-sm-9">
+      <div class="col-sm-7">
         <%= image_tag @mystery.answer_image.variant(resize:"800x1200") %>
       </div>
 
-      <div class="col-sm-3">
-        <h3>解説</h3>
+      <div class="col-sm-3 ml-auto">
+        <h3 class="mb-3">解説</h3>
         <% if @mystery.description.blank? %>
           <p>解説はありません。</p>
         <% else %>
           <%= @mystery.description %>
         <% end %>
-        <%= link_to "もっと謎を解く ≫" ,mysteries_path ,class:"btn btn-outline-dark btn-sm" %>
+        <p class="mt-5"><%= link_to "もっと謎を解く ≫" ,mysteries_path ,class:"btn btn-outline-dark btn-sm" %></p>
+        <p class="mt-3"><%= link_to "戻る" ,mystery_path(@mystery) ,class:"btn btn-outline-dark btn-sm" %></p>
       </div>
     <% else %>
-      <div class="col-sm-3">
-        <h3>解説</h3>
+      <div class="col-sm-7">
+        <%= image_tag @mystery.question_image.variant(resize:"800x1200") %>
+      </div>
+      <div class="col-sm-3 ml-auto">
+        <h3 class="mb-3">解説</h3>
         <% if @mystery.description.blank? %>
           <p>解説はありません。</p>
         <% else %>
           <%= @mystery.description %>
         <% end %>
-        <%= link_to "もっと謎を解く ≫" ,mysteries_path ,class:"btn btn-outline-dark btn-sm" %>
+        <p class="mt-5"><%= link_to "もっと謎を解く ≫" ,mysteries_path ,class:"btn btn-outline-dark btn-sm" %></p>
+        <p class="mt-3"><%= link_to "戻る" ,mystery_path(@mystery) ,class:"btn btn-outline-dark btn-sm" %></p>
       </div>
     <% end %>
 
