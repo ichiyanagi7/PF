@@ -18,15 +18,23 @@ class MysteriesController < ApplicationController
   end
 
   def edit
+    @mystery=Mystery.find(params[:id])
   end
 
   def update
+    mystery=Mystery.find(params[:id])
+    mystery.update(mystery_params)
+    redirect_to mystery_path(mystery)
   end
 
   def destroy
+    mystery=Mystery.find(params[:id])
+    mystery.destroy
+    redirect_to mysteries_path
   end
 
   def answer
+    @mystery=Mystery.find(params[:id])
   end
 
   private

@@ -36,7 +36,7 @@ Rails.application.routes.draw do
   get "users/:id/withdraw", to: "users#withdraw"
   resources :users,only:[:show,:edit,:update]
 
-  get "mysteries/:id/answer",to: "mystereies#answer"
+  get "mysteries/:id/answer",to: "mysteries#answer",as: "answer"
   resources :mysteries do
     # コメント機能
     resources :comments,only:[:create,:destroy]

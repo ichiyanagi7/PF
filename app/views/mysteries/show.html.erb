@@ -17,16 +17,42 @@
       <% else %>
       <p><a class="btn btn-primary toggle-btn" data-toggle="collapse" href="#hint" role="button">ヒント</a></p>
       <div class="collapse mb-5" id="hint" data-parent="#hint">
-        <h4 class="text-nowrap"><%= @mystery.hint %></h4>
+        <h5 class="text-nowrap"><%= @mystery.hint %></h5>
       </div>
       <% end %>
 
-      <p><a class="btn btn-danger toggle-btn" data-toggle="collapse" href="#answer" role="button">答え</a></p>
+      <p>
+        <a class="btn btn-danger toggle-btn" data-toggle="collapse" href="#answer" role="button">
+          答え<span class="small"> (クリックで表示)</span></a>
+      </p>
       <div class="collapse" id="answer" data-parent="#answer">
-        <h4 class="text-nowrap mb-3">「<%= @mystery.answer %>」</h4>
-        <span>解説</span>
-        <p><%= @mystery.description %></p>
+        <h2 class="text-nowrap mb-3">「<%= @mystery.answer %>」</h2>
+        <div class="mt-5">
+          <%= link_to "解説を見る/コメントをする" ,answer_path(@mystery) ,class:"btn btn-outline-dark btn-sm" %>
+        </div>
       </div>
+    </div>
+
+    <div class="col-sm-12 mt-5 mb-3">
+      <h3>コメント</h3>
+      <% if @mystery.comments.blank? %>
+        <p>コメントはありません</p>
+      <% else %>
+        <table class="table">
+          <% @mystery.comments.each do |comment| %>
+          <thead>
+            <tr>
+              <th><%= comment.user.name %></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><%= comment.comment %></td>
+            </tr>
+          </tbody>
+          <% end %>
+        </table>
+      <% end %>
     </div>
 
   </div>
