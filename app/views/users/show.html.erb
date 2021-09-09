@@ -1,2 +1,77 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h3>マイページ</h3>
+  </div>
+
+  <div class="row align-items-center border-bottom">
+    <div class="col-sm-3 mr-5">
+      <% if @user.image.attached? %>
+        <%= image_tag @user.image.variant(resize:"300x300") %>
+      <% else %>
+        <%= image_tag "no_image.jpg" ,size:"300x300" %>
+      <% end %>
+    </div>
+
+    <div class="col-sm-6 ml-auto">
+      <table class="table">
+        <p class="text-right"><%= link_to "編集",edit_user_path(@user),class:"btn btn-outline-dark btn-sm" %></p>
+        <tbody>
+          <tr>
+            <td>ニックネーム</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>自己紹介</td>
+            <td><%= @user.introduction %></td>
+          </tr>
+          <tr>
+            <td>フォロー中</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>フォロワー</td>
+            <td></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+
+  <div class="row mt-3">
+    <h3>謎投稿一覧</h3>
+    <p class="ml-5"><%= link_to "投稿する",new_mystery_path,class:"btn btn-outline-dark" %></p>
+  </div>
+
+  <div class="row mt-3">
+  <% if @mysteries.present? %>
+    <% @mysteries.each do |mystery| %>
+      <div class="col-sm-4">
+        <%= link_to mystery_path(mystery) do %>
+          <div class="card">
+            <%= image_tag mystery.question_image ,class:"card-img-top" %>
+            <div class="card-body">
+              <h5 class="pb-3 card-text text-center text-dark border-bottom"><%= mystery.title %></h5>
+              <% if current_user == mystery.user %>
+              <div class="row mt-3">
+                <div class="col-sm-3">
+                  <%= link_to "編集",edit_mystery_path(mystery),class:"btn btn-warning btn-sm" %>
+                </div>
+                <div class="col-sm-3 ml-auto">
+                  <%= link_to "削除",mystery_path(mystery),method: :delete ,data:{confirm:"本当に削除しますか？"},class:"btn btn-danger btn-sm text-right" %>
+                </div>
+              </div>
+              <% end %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+
+  <% else %>
+    <h5>投稿がありません</h5>
+  <% end %>
+  </div>
+
+
+</div>

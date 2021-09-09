@@ -7,27 +7,27 @@
   <%= form_with model: @mystery,url:mysteries_path,method: :post,local:true do |f| %>
   <div class="row mt-2">
     <div class="col-sm-8 form-group">
-      <%= f.label :タイトル %><span class="small text-danger bg-warning ml-2">必須</span>
+      <%= f.label :タイトル %><span class="small  badge badge-warning ml-2">必須</span>
       <%= f.text_field :title ,placeholder:"タイトルを入力" ,class:"form-control" %>
     </div>
 
     <div class="col-sm-8 form-group">
-      <%= f.label :ジャンル %><span class="small text-danger bg-warning ml-2">必須</span><br>
+      <%= f.label :ジャンル %><span class="small  badge badge-warning ml-2">必須</span><br>
       <%= f.collection_select :genre_id, Genre.all, :id, :name, include_blank: "-- 選択してください --" ,class:"form-control" %>
     </div>
 
     <div class="col-sm-8 form-group">
-      <%= f.label :問題文 %><span class="small text-danger bg-warning ml-2">必須</span>
+      <%= f.label :問題文 %><span class="small  badge badge-warning ml-2">必須</span>
       <%= f.text_area :question ,placeholder:"この問題を解いてください",class:"form-control" %>
     </div>
 
     <div class="col-sm-8 form-group">
-      <%= f.label :問題画像 %><span class="small text-danger bg-warning ml-2">必須</span><br>
+      <%= f.label :問題画像 %><span class="small  badge badge-warning ml-2">必須</span><br>
       <%= f.file_field :question_image ,class:"form-control-file" %>
     </div>
 
     <div class="col-sm-8 form-group">
-      <%= f.label :解答 %><span class="small text-danger bg-warning ml-2">必須</span><br>
+      <%= f.label :解答 %><span class="small  badge badge-warning ml-2">必須</span><br>
       <%= f.text_field :answer, placeholder:"答えのみを記入してください",class:"form-control" %>
     </div>
 

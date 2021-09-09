@@ -30,7 +30,7 @@ class MysteriesController < ApplicationController
   def destroy
     mystery=Mystery.find(params[:id])
     mystery.destroy
-    redirect_to mysteries_path
+    redirect_to request.referer
   end
 
   def answer
