@@ -32,8 +32,8 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "about", to: "homes#about"
 
-  get "users/:id/unsubscribe", to: "users#unsubscribe"
-  get "users/:id/withdraw", to: "users#withdraw"
+  get "users/:id/unsubscribe", to: "users#unsubscribe",as:"unsubscribe"
+  patch "users/:id/withdraw", to: "users#withdraw",as:"withdraw"
   resources :users,only:[:show,:edit,:update]
 
   get "mysteries/:id/answer",to: "mysteries#answer",as: "answer"
