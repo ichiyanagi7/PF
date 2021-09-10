@@ -1,10 +1,10 @@
 # ミステリオ
 
 ## サイト概要
-このサイトでは、あらゆる謎を解くことができます。  
-また、このサイトにある謎は全てユーザーによって作られたものです。  
-昨今、大人から子供まであらゆる世代で謎解きが人気を博していますが、もっと謎を解いて謎解き力を高めたい。と思っている人は少なくないでしょう。 
-そのようなユーザーのために、謎解きに特化したサイトを作成しました。  
+このサイトでは、あらゆる謎を解くことができます。
+また、このサイトにある謎は全てユーザーによって作られたものです。
+昨今、大人から子供まであらゆる世代で謎解きが人気を博していますが、もっと謎を解いて謎解き力を高めたい。と思っている人は少なくないでしょう。
+そのようなユーザーのために、謎解きに特化したサイトを作成しました。
 ユーザーは自作したオリジナル謎を投稿でき、他のユーザーはその謎を解いて難易度を評価できます。難易度やジャンルで謎を検索できたり、お気に入りのユーザーをフォローすれば新作の謎をすぐにチェックすることもできます。また、謎一つ一つにコメントを残すことができるため、謎好き同士でコミュニケーションを取ることもできます。
 
 家での時間を楽しむことが注目されている中、このサイトがあれば、一人で楽しむのはもちろん、友人とオンライン通話しながら楽しむこともできます。
@@ -19,10 +19,10 @@
 このような背景から、謎解きをより身近な存在にして、より多くのユーザーに謎解きの楽しさを届けたいと考え、本サイトの製作を決めました。
 また、今回は謎を解くだけでなく、謎を作って投稿するという点にも着目しました。
 私自身謎解きが学生時代から好きで、今でもよく友人と謎解きイベントに参加してます。謎を解くだけに飽き足らず、自分達で謎を作ってイベントを開催した経験もあります。
-その時に謎を解くだけでなく、作ることの楽しさを知り、この楽しさを多くのユーザーに共有したいと思い、今回のサイトに機能として追加しました。
+その時に謎を作ることの楽しさを知り、この楽しさを多くのユーザーに共有したいと思い、今回のサイトに機能として追加しました。
 
 ### ターゲットユーザ
-- 謎解きが好きで、謎解き力を向上させたいと思っているユーザ  
+- 謎解きが好きで、謎解き力を向上させたいと思っているユーザ
 - 謎を作って披露したいと思っているユーザ
 
 ### 主な利用シーン
@@ -31,10 +31,10 @@
 - 謎解きイベント後など
 
 ## 設計書
-- 機能一覧は[こちら](https://docs.google.com/spreadsheets/d/1-K7XcrWlwL8EgBtSi1K99WE2NqWtKIuP09nBNab-HTo/edit?usp=sharing)  
+- 機能一覧は[こちら](https://docs.google.com/spreadsheets/d/1-K7XcrWlwL8EgBtSi1K99WE2NqWtKIuP09nBNab-HTo/edit?usp=sharing)
 - UI Flows(User側)は[こちら](https://drive.google.com/file/d/1NSEQPKyLqVldEAyoYKx9nGWtdiVNBvUU/view?usp=sharing)
-- UI Flows(admin側)は[こちら](https://drive.google.com/file/d/1E8cJwWuyQWNi3gQvVRIOQ7nIo-E3D8vZ/view?usp=sharing)  
-- ER図は[こちら](https://drive.google.com/file/d/1Z1t427BeLVCVwx5kE4a7p-I8qxnAQfWg/view?usp=sharing)  
+- UI Flows(admin側)は[こちら](https://drive.google.com/file/d/1E8cJwWuyQWNi3gQvVRIOQ7nIo-E3D8vZ/view?usp=sharing)
+- ER図は[こちら](https://drive.google.com/file/d/1Z1t427BeLVCVwx5kE4a7p-I8qxnAQfWg/view?usp=sharing)
 - テーブル定義書は[こちら](https://docs.google.com/spreadsheets/d/1w0lcOTKWH1BoCEFprmksiiPeU3NK2O4Y89ZITQJdvMU/edit?usp=sharing)
 - アプリケーション詳細設計書は[こちら](https://docs.google.com/spreadsheets/d/1IfItHug-_PJa_SacXCDYSLo7REtzZCEYX0WEbMpypzY/edit?usp=sharing)
 
