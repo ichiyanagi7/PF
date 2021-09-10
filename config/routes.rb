@@ -4,7 +4,7 @@ Rails.application.routes.draw do
     :passwords => "admins/passwords"
   }
 
-   devise_scope :admins do
+  devise_scope :admin do
     get "admins/sign_in", to: "admins/sessions#new"
     post "admins/sign_in", to: "admins/sessions#create"
     delete "admins/sign_out",to: "admins/sessions#destroy"

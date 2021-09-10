@@ -1,2 +1,67 @@
-<h1>Admins::Mysteries#show</h1>
-<p>Find me in app/views/admins/mysteries/show.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h3>謎詳細</h3>
+  </div>
+  <div class="row justify-content-center">
+    <% if @mystery.question_image.attached? %>
+      <div class="col-sm-12 col-md-4 card">
+        <p class="card-text">問題画像</p>
+        <%= image_tag @mystery.question_image %>
+      </div>
+    <% end %>
+    <% if @mystery.answer_image.attached? %>
+      <div class="col-sm-12 col-md-4 card ml-5">
+        <p class="card-text">解答画像</p>
+        <%= image_tag @mystery.answer_image,class:"card-img-bottom mb-3" %>
+      </div>
+    <% end %>
+
+    <div class="col-sm-12 col-md-9 mx-auto mt-5">
+      <table class="table">
+        <tbody class="text-left">
+          <tr>
+            <td nowrap>ユーザー</td>
+            <td><%= link_to @mystery.user.name,user_path(@mystery.user) %></td>
+          </tr>
+          <tr>
+            <td>ジャンル</td>
+            <td><%= @mystery.genre.name %></td>
+          </tr>
+          <tr>
+            <td>タイトル</td>
+            <td><%= @mystery.title %></td>
+          </tr>
+          <tr>
+            <td>問題文</td>
+            <td><%= @mystery.question %></td>
+          </tr>
+          <tr>
+            <td>答え</td>
+            <td><%= @mystery.answer %></td>
+          </tr>
+          <tr>
+            <td>解説</td>
+            <% if @mystery.description.present? %>
+            <td><%= @mystery.description %></td>
+            <% else %>
+            <td>-</td>
+            <% end %>
+          </tr>
+          <tr>
+            <td>ヒント</td>
+            <% if @mystery.hint.present? %>
+            <td><%= @mystery.hint %></td>
+            <% else %>
+            <td>ー</td>
+            <% end %>
+          </tr>
+          <tr>
+            <td></td>
+            <td class="text-right"><%= link_to "削除",admins_mystery_path(@mystery),method: :delete ,data:{confirm:"本当に削除しますか？"} ,class:"btn btn-outline-danger btn-sm" %></td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
