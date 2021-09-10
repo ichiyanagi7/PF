@@ -46,9 +46,14 @@
       <%= f.text_area :hint ,placeholder:"ヒントを記入してください",class:"form-control" %>
     </div>
 
-    <div class="col-sm-8 form-group">
+    <div class="col-sm-5 form-group mt-3">
       <%= f.submit "変更を保存",class:"px-5 btn btn-success btn-lg" %>
     </div>
+
+    <div class="col-sm-5 mt-3">
+      <%= link_to "戻る",:back,class:"px-5 btn btn-dark btn-lg" %>
+    </div>
+
   </div>
   <% end %>
 

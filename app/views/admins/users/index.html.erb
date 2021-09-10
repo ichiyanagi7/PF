@@ -1,2 +1,24 @@
-<h1>Admins::Users#index</h1>
-<p>Find me in app/views/admins/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h3>ユーザー一覧(全<%= @user_all.count %>件)</h3>
+  </div>
+  <div class="row mt-5">
+    <% @users.each do |user| %>
+      <div class="col-sm-3">
+        <%= link_to admins_user_path(user) do %>
+          <div class="card">
+            <% if user.image.attached? %>
+              <%= image_tag user.image ,class:"card-img-top" %>
+            <% else %>
+              <%= image_tag "no_image.jpg",size:"253x253" ,class:"card-img-top" %>
+            <% end %>
+            <div class="card-body">
+              <p class="card-text text-center text-dark"><%= user.name %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+  </div>
+</div>
