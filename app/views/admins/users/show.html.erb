@@ -1,2 +1,63 @@
-<h1>Admins::Users#show</h1>
-<p>Find me in app/views/admins/users/show.html.erb</p>
+<div class="container">
+  <div class="row mb-5">
+    <h3>ユーザー詳細情報</h3>
+  </div>
+
+  <div class="row">
+    <% if @user.image.attached? %>
+      <div class="col-sm-12 col-md-4">
+        <%= image_tag @user.image.variant(resize:"300x300") %>
+      </div>
+    <% end %>
+
+    <div class="col-sm-12 col-md-6 mr-auto">
+      <div class="mb-3 text-right">
+        <%= link_to "編集",edit_admins_user_path(@user),class:"btn btn-outline-dark btn-sm" %>
+      </div>
+
+      <table class="table">
+        <tbody>
+          <tr>
+            <td>ニックネーム</td>
+            <td><%= @user.name %></td>
+          </tr>
+          <tr>
+            <td>自己紹介</td>
+            <td><%= @user.introduction %></td>
+          </tr>
+          <tr>
+            <td>会員ステータス</td>
+            <td>
+              <% if @user.is_deleted == true %>
+              <span class="text-danger">退会済み</span>
+              <% else %>
+              有効
+              <% end %>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="col-sm-12 mt-5">
+      <h5>謎一覧</h5>
+      <% @user.mysteries.each do |mystery| %>
+       <div class="col-sm-3">
+        <%= link_to admins_mystery_path(mystery) do %>
+          <div class="card">
+            <% if mystery.question_image.attached? %>
+              <%= image_tag mystery.question_image ,class:"card-img-top" %>
+            <% else %>
+              <%= image_tag "no_image.jpg",size:"auto" ,class:"card-img-top" %>
+            <% end %>
+            <div class="card-body">
+              <p class="card-text text-center text-dark"><%= mystery.title %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    </div>
+
+  </div>
+</div>

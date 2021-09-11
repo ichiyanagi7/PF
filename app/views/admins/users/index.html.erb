@@ -10,7 +10,7 @@
             <% if user.image.attached? %>
               <%= image_tag user.image ,class:"card-img-top" %>
             <% else %>
-              <%= image_tag "no_image.jpg",size:"253x253" ,class:"card-img-top" %>
+              <%= image_tag "no_image.jpg",size:"auto" ,class:"card-img-top" %>
             <% end %>
             <div class="card-body">
               <p class="card-text text-center text-dark"><%= user.name %></p>

@@ -6,6 +6,11 @@
       <h4 class="text-center mb-5">
         ようこそ <u><%= current_user.name %></u> さん!!
       </h4>
+      <% elsif admin_signed_in? %>
+      <h4 class="text-center mb-5">
+        管理人でログイン中です。<br>
+        上記メニューからサイトの管理が可能です。
+      </h4>
       <% else %>
       <h4 class="text-center mb-5">
         このサイトで遊ぶためにはログインが必要です。<br>
