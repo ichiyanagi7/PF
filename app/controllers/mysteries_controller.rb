@@ -35,6 +35,7 @@ class MysteriesController < ApplicationController
 
   def answer
     @mystery=Mystery.find(params[:id])
+    @comment=Comment.new
   end
 
   private

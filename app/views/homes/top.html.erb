@@ -19,8 +19,9 @@
       <% end %>
     </div>
 
-    <div class="col-sm-12 text-right my-5">
-      <%= link_to "もっと謎を探す ≫", mysteries_path,class:"text-dark" %>
+    <div class="col-sm-12 text-right my-5 under">
+      <h4 class="text-center">フォロワーの謎一覧</h4>
+        <%= link_to "もっと謎を探す ≫", mysteries_path,class:"text-dark" %>
     </div>
 
     <% @mysteries.each do |mystery| %>
@@ -29,7 +30,8 @@
           <div class="card">
             <%= image_tag mystery.question_image ,class:"card-img-top" %>
             <div class="card-body">
-              <p class="card-text text-center text-dark"><%= mystery.title %></p>
+              <p class="card-text text-center text-dark border-bottom pb-3"><%= mystery.title %></p>
+              <p class="card-text text-center text-dark"><%= mystery.user.name %> | <%= mystery.created_at.to_s(:datetime_jp_show) %></p>
             </div>
           </div>
         <% end %>
