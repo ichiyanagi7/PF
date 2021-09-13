@@ -39,7 +39,7 @@ Rails.application.routes.draw do
   get "mysteries/:id/answer",to: "mysteries#answer",as: "answer"
   resources :mysteries do
     # コメント機能
-    resources :comments,only:[:create,:destroy]
+    resources :comments,only:[:create,:update,:edit,:destroy]
     # レビュー機能
     resources :reviews,only:[:create]
     get "reviews/complete",to:"reviews#complete"

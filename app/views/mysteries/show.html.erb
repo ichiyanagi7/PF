@@ -36,20 +36,23 @@
     </div>
 
     <div class="col-sm-9 mt-5 mb-3">
-      <h3>コメント</h3>
+      <h3>コメント(全<%= @mystery.comments.count %>件)</h3>
       <% if @mystery.comments.blank? %>
         <p>コメントはありません</p>
       <% else %>
-        <table class="table">
-          <% @mystery.comments.each do |comment| %>
-          <tbody>
-            <tr>
-              <td><%= comment.user.name %></td>
-              <td><%= comment.comment %></td>
-            </tr>
-          </tbody>
-          <% end %>
-        </table>
+        <% @mystery.comments.each do |comment| %>
+          <div class="media">
+            <%= image_tag comment.user.image.variant(resize:"50x50") ,class:"align-self-start" %>
+            <div class="media-body ml-3">
+              <strong><%= link_to comment.user.name,user_path(comment.user) %></strong>
+              <p class="fw-light"><%= comment.comment %></p>
+            </div>
+            <% if current_user == comment.user %>
+              <%= link_to "編集",edit_mystery_comment_path(@mystery,comment),class:"btn btn-outline-dark btn-sm mr-3" %>
+              <%= link_to "削除",mystery_comment_path(@mystery,comment),method: :delete ,class:"btn btn-danger btn-sm" %>
+            <% end %>
+          </div>
+        <% end %>
       <% end %>
     </div>
 

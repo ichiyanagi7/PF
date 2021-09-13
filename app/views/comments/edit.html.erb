@@ -1,0 +1,24 @@
+<div class="container">
+  <div class="row mb-3">
+    <h2><u>コメントを編集する</u></h2>
+  </div>
+
+  <%= form_with model: @comment,url:mystery_comment_path(@mystery,@comment),method: :patch,local:true do |f| %>
+  <div class="row mt-2">
+    <div class="col-sm-8 form-group">
+      <%= f.label :コメント %>
+      <%= f.text_area :comment ,class:"form-control" %>
+    </div>
+
+    <div class="col-sm-5 form-group mt-3">
+      <%= f.submit "変更を保存",class:"px-5 btn btn-success" %>
+    </div>
+
+    <div class="col-sm-5 mt-3">
+      <%= link_to "戻る",:back,class:"px-5 btn btn-dark" %>
+    </div>
+
+  </div>
+  <% end %>
+
+</div>

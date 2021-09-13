@@ -7,6 +7,17 @@ class CommentsController < ApplicationController
     redirect_to mystery_path(mystery)
   end
 
+  def edit
+    @mystery=Mystery.find(params[:mystery_id])
+    @comment=Comment.find_by(mystery_id: params[:mystery_id],id: params[:id])
+  end
+
+  def update
+    comment=Comment.find_by(mystery_id: params[:mystery_id],id: params[:id])
+    comment.update(comment_params)
+    redirect_to mystery_path(comment.mystery)
+  end
+
   def destroy
   end
 
