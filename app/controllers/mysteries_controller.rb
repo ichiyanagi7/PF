@@ -1,5 +1,6 @@
 class MysteriesController < ApplicationController
   def index
+    @mysteries=Mystery.all
   end
 
   def show

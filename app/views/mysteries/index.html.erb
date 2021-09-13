@@ -1,5 +1,20 @@
 <div class="container">
   <div class="row">
-    <h1>indexページ</h1>
+    <h1>謎一覧(全<%= @mysteries.count %>件)</h1>
+  </div>
+  <div class="row">
+     <% @mysteries.each do |mystery| %>
+      <div class="col-sm-12 col-md-4 mt-3">
+        <%= link_to mystery_path(mystery) do %>
+          <div class="card">
+            <%= image_tag mystery.question_image ,class:"card-img-top" %>
+            <div class="card-body">
+              <p class="card-text text-center text-dark border-bottom pb-3"><%= mystery.title %></p>
+              <p class="card-text text-center text-dark"><%= mystery.user.name %> | <%= mystery.created_at.to_s(:datetime_jp_show) %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
   </div>
 </div>

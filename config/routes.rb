@@ -34,7 +34,12 @@ Rails.application.routes.draw do
 
   get "users/:id/unsubscribe", to: "users#unsubscribe",as:"unsubscribe"
   patch "users/:id/withdraw", to: "users#withdraw",as:"withdraw"
-  resources :users,only:[:show,:edit,:update]
+  resources :users,only:[:show,:edit,:update] do
+      # フォロー機能
+    resource :relationships,only:[:create,:destroy]
+    get "followings",to: "relationships#followings",as: "followings"
+    get "followers",to: "relationships#followers",as: "followers"
+  end
 
   get "mysteries/:id/answer",to: "mysteries#answer",as: "answer"
   resources :mysteries do
@@ -44,11 +49,6 @@ Rails.application.routes.draw do
     resources :reviews,only:[:create]
     get "reviews/complete",to:"reviews#complete"
   end
-
-  # フォロー機能
-  resources :relationships,only:[:create,:destroy]
-  get "followings",to: "relationships#followings",as: "followings"
-  get "followers",to: "relationships#followers",as: "followers"
 
   get "search", to: "searches#search"
 

@@ -4,7 +4,7 @@
   </div>
 
   <div class="row align-items-center border-bottom pb-3">
-    <div class="col-sm-3 mr-5">
+    <div class="col-sm-3">
       <% if @user.image.attached? %>
         <%= image_tag @user.image.variant(resize:"300x300") %>
       <% else %>
@@ -12,10 +12,12 @@
       <% end %>
     </div>
 
-    <div class="col-sm-6 ml-auto">
+    <div class="col-sm-6 mx-auto">
       <table class="table">
         <% if current_user==@user %>
           <p class="text-right"><%= link_to "編集",edit_user_path(@user),class:"btn btn-outline-dark btn-sm" %></p>
+        <% else %>
+          <p class="text-right"><%= render "layouts/follow",user: @user %></p>
         <% end %>
         <tbody>
           <tr>
