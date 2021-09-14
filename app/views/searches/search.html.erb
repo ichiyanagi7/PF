@@ -21,7 +21,7 @@
             <%= image_tag mystery.question_image ,class:"card-img-top" %>
             <div class="card-body">
               <p class="card-text text-center text-dark border-bottom pb-3"><%= mystery.title %></p>
-              <p class="card-text text-center text-dark"><%= mystery.user.name %> | <%= mystery.created_at.to_s(:datetime_jp_show) %></p>
+              <p class="card-text text-center text-dark">難易度 | <i class="far fa-comment"></i> <%= mystery.comments.count %> </p>
             </div>
           </div>
         <% end %>

@@ -38,9 +38,13 @@
         </tbody>
       </table>
     </div>
+    </div>
 
-    <div class="col-sm-12 mt-5">
+    <div class="row mt-5">
       <h5>謎一覧</h5>
+    </div>
+
+    <div class="row mt-3">
       <% @user.mysteries.each do |mystery| %>
        <div class="col-sm-3">
         <%= link_to admins_mystery_path(mystery) do %>
@@ -59,5 +63,4 @@
     <% end %>
     </div>
 
-  </div>
 </div>

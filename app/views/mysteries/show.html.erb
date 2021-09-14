@@ -36,7 +36,7 @@
     </div>
 
     <div class="col-sm-9 mt-5 mb-3">
-      <h3>コメント(全<%= @mystery.comments.count %>件)</h3>
+      <h3 class="mb-3"><i class="far fa-comment"></i> コメント(全<%= @mystery.comments.count %>件)</h3>
       <% if @mystery.comments.blank? %>
         <p>コメントはありません</p>
       <% else %>

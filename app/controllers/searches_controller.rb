@@ -9,16 +9,16 @@ class SearchesController < ApplicationController
 
   private
 
-  def genre(value)
-    @genre = Genre.find_by(name: value)
-    Mystery.where(genre_id: @genre.id)
-  end
-
   def search_for(how, value)
     case how
     when 'genre'
       genre(value)
     end
+  end
+  
+  def genre(value)
+    @genre = Genre.find_by(name: value)
+    Mystery.where(genre_id: @genre.id)
   end
 
 end
