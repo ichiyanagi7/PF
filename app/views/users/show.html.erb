@@ -30,11 +30,11 @@
           </tr>
           <tr>
             <td>フォロー中</td>
-            <td>人数表示</td>
+            <td><%= link_to @user.followings.count,user_followings_path(@user) %></td>
           </tr>
           <tr>
             <td>フォロワー</td>
-            <td>人数表示</td>
+            <td><%= link_to @user.followers.count,user_followers_path(@user) %></td>
           </tr>
           <tr>
             <td>お気に入り</td>

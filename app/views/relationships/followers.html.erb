@@ -1,2 +1,36 @@
-<h1>Relationships#followers</h1>
-<p>Find me in app/views/relationships/followers.html.erb</p>
+<div class="container">
+  <div class="row">
+    <h3>フォロワー一覧</h3>
+  </div>
+
+  <div class="row mt-3">
+    <div class="col-sm-12">
+    <% if @users.present? %>
+    <% @users.each do |user| %>
+      <div class="media mb-3">
+        <% if user.image.attached? %>
+          <%= image_tag user.image.variant(resize:"50x50") ,class:"align-self-start" %>
+        <% else %>
+          <%= image_tag "no_image.jpg",size:"50x50" %>
+        <% end %>
+        <div class="media-body ml-3">
+          <strong><%= link_to user.name,user_path(user) %></strong>
+          <p class="fw-light"><%= user.introduction %></p>
+        </div>
+        <%= render "layouts/follow",user: user %>
+      </div>
+    <% end %>
+
+    <% else %>
+
+    <h5>フォローしているユーザーはいません。</h5>
+
+    <% end %>
+
+    <div class="text-right">
+      <%= link_to "戻る",:back,class:"btn btn-outline-dark" %>
+    </div>
+
+    </div>
+  </div>
+</div>
