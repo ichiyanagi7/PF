@@ -39,6 +39,7 @@ Rails.application.routes.draw do
     resource :relationships,only:[:create,:destroy]
     get "followings",to: "relationships#followings",as: "followings"
     get "followers",to: "relationships#followers",as: "followers"
+    get "favorites",to: "favorites#index",as: "favorites"
   end
 
   get "mysteries/:id/answer",to: "mysteries#answer",as: "answer"
@@ -48,6 +49,8 @@ Rails.application.routes.draw do
     # レビュー機能
     resources :reviews,only:[:create]
     get "reviews/complete",to:"reviews#complete"
+    # お気に入り機能
+    resource :favorites,only:[:create,:destroy]
   end
 
   get "search", to: "searches#search"

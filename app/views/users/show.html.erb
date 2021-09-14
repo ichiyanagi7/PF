@@ -38,7 +38,7 @@
           </tr>
           <tr>
             <td>お気に入り</td>
-            <td>お気に入り数を表示</td>
+            <td><%= link_to @user.favorites.count,user_favorites_path(@user) %></td>
           </tr>
         </tbody>
       </table>

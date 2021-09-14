@@ -5,12 +5,11 @@
       全て(<%= mysteries.count %>)
     <% end %>
   </div>
-
-  <% genres.each do |genre| %>
-  <div class="col-sm-2">
-    <%= link_to search_path('search[value]': genre.name, 'search[how]': "genre"),class:"text-dark" do %>
-      <%= genre.name %>(<%= genre.mysteries.count %>)
+  
+    <% genres.each do |genre| %>
+    <div class="col-sm-2">
+      <%= link_to search_path('search[value]': genre.name, 'search[how]': "genre"),class:"text-dark" do %>
+        <%= genre.name %>(<%= genre.mysteries.count %>)
+      <% end %>
+    </div>
     <% end %>
-  </div>
-  <% end %>
-
