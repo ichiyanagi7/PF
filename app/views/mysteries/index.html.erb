@@ -1,7 +1,11 @@
 <div class="container">
   <div class="row">
-    <h1>謎一覧(全<%= @mysteries.count %>件)</h1>
+    <h3>謎一覧(全<%= @mysteries.count %>件)</h3>
   </div>
+  <div class="row justify-content-center my-3">
+    <%= render "layouts/genre",genres: @genres,mysteries: @mysteries %>
+  </div>
+
   <div class="row">
      <% @mysteries.each do |mystery| %>
       <div class="col-sm-12 col-md-4 mt-3">

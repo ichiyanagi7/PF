@@ -1,2 +1,33 @@
-<h1>Searches#search</h1>
-<p>Find me in app/views/searches/search.html.erb</p>
+<div class="container">
+  <div class="row">
+  <% if @datas.empty? %>
+    <h3>" <%= @value %> "の謎はありません</h3>
+  </div>
+  <div class="row justify-content-center my-3">
+    <%= render "layouts/genre",genres: @genres,mysteries: @mysteries %>
+  </div>
+  <% else %>
+    <h3><strong >" <%= @value %> " </strong>の一覧<span class="small"> (全<%= @datas.count %>件)</span></h3>
+  </div>
+  <div class="row justify-content-center my-3">
+    <%= render "layouts/genre",genres: @genres,mysteries: @mysteries %>
+  </div>
+
+  <div class="row mt-5">
+    <% @datas.each do |mystery| %>
+      <div class="col-sm-12 col-md-4 mt-3">
+        <%= link_to mystery_path(mystery) do %>
+          <div class="card">
+            <%= image_tag mystery.question_image ,class:"card-img-top" %>
+            <div class="card-body">
+              <p class="card-text text-center text-dark border-bottom pb-3"><%= mystery.title %></p>
+              <p class="card-text text-center text-dark"><%= mystery.user.name %> | <%= mystery.created_at.to_s(:datetime_jp_show) %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+
+</div>
