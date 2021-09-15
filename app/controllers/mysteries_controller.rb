@@ -1,6 +1,6 @@
 class MysteriesController < ApplicationController
   def index
-    @mysteries=Mystery.all
+    @mysteries=Mystery.all.order(created_at: :desc)
     @genres=Genre.all
   end
 

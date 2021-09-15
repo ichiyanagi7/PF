@@ -20,17 +20,17 @@
         <%= render "layouts/follow",user: user %>
       </div>
     <% end %>
-      
+
     <% else %>
-    
+
     <h5>フォローしているユーザーはいません。</h5>
-    
+
     <% end %>
-    
+
     <div class="text-right">
-      <%= link_to "戻る",:back,class:"btn btn-outline-dark" %>
+      <%= link_to "戻る",user_path(current_user),class:"btn btn-outline-dark" %>
     </div>
-    
+
     </div>
   </div>
 </div>
