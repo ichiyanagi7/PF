@@ -50,25 +50,37 @@
     <h4>謎投稿一覧</h4>
   </div>
 
-  <div class="row mt-3">
+  <div class="row">
+
   <% if @mysteries.present? %>
     <% @mysteries.each do |mystery| %>
-      <div class="col-sm-4">
+      <div class="col-sm-12 col-md-4 mt-3">
         <%= link_to mystery_path(mystery) do %>
           <div class="card">
             <%= image_tag mystery.question_image ,class:"card-img-top" %>
             <div class="card-body">
-              <h5 class="pb-3 card-text text-center text-dark border-bottom"><%= mystery.title %></h5>
-              <% if current_user == mystery.user %>
-              <div class="row mt-3">
-                <div class="col-sm-3">
-                  <%= link_to "編集",edit_mystery_path(mystery),class:"btn btn-warning btn-sm" %>
-                </div>
-                <div class="col-sm-3 ml-auto">
-                  <%= link_to "削除",mystery_path(mystery),method: :delete ,data:{confirm:"本当に削除しますか？"},class:"btn btn-danger btn-sm text-right" %>
-                </div>
-              </div>
-              <% end %>
+              <p class="card-text text-center text-dark border-bottom pb-3"><%= mystery.title %></p>
+              <p class="card-text text-center text-dark">
+                <span id="review-rating-<%= mystery.id %>">難易度: </span> | <i class="far fa-thumbs-up"></i> <%= mystery.favorites.count %> | <i class="far fa-comment"></i> <%= mystery.comments.count %></p>
+
+
+          <!--難易度平均表示 jquery.raty.js------------------------------>
+              <script>
+                $('#review-rating-<%= mystery.id %>').raty({
+                  starOff: "<%= asset_path('star-off.png') %>",
+                  starOn: "<%= asset_path('star-on.png') %>",
+                  starHalf: "<%= asset_path('star-half.png') %>",
+                  half: true,
+                  readOnly: true,
+                  score: "<%= mystery.comments.average(:rate).to_f.round(1) %>",
+                });
+              </script>
+          <!-------------------------------------------------------------->
+          
+            <% if current_user == mystery.user %>
+              <%= link_to "編集",edit_mystery_path(mystery),class:"btn btn-warning btn-sm" %>
+              <%= link_to "削除",mystery_path(mystery),method: :delete ,data:{confirm:"本当に削除しますか？"},class:"btn btn-danger btn-sm ml-5" %>
+            <% end %>
             </div>
           </div>
         <% end %>
@@ -78,6 +90,7 @@
   <% else %>
     <h5>投稿がありません</h5>
   <% end %>
+
   </div>
 
 

@@ -10,6 +10,11 @@
       <%= f.text_area :comment ,class:"form-control" %>
     </div>
 
+    <div class="col-sm-12 form-group mt-3" id="rating-form">
+      <%= f.label :難易度 %><br>
+      <%= f.hidden_field :rate, :value => 'score' %>
+    </div>
+
     <div class="col-sm-5 form-group mt-3">
       <%= f.submit "変更を保存",class:"px-5 btn btn-success" %>
     </div>
@@ -22,3 +27,15 @@
   <% end %>
 
 </div>
+
+<!--難易度入力 jquery.raty.js用-->
+  <script>
+    $('#rating-form').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path("star-half.png") %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      score: "<%= @comment.rate %>",
+      scoreName: 'comment[rate]',
+      half: true,
+        });
+  </script>

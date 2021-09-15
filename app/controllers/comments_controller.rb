@@ -3,8 +3,13 @@ class CommentsController < ApplicationController
     mystery=Mystery.find(params[:mystery_id])
     comment=current_user.comments.new(comment_params)
     comment.mystery_id=mystery.id
-    comment.save
-    redirect_to mystery_path(mystery)
+    comment_count=Comment.where(mystery_id: params[:mystery_id],user_id: current_user.id).count
+    if comment_count < 1
+      comment.save
+      redirect_to mystery_path(mystery),notice: "レビューを投稿しました!"
+    else
+      redirect_to request.referer,notice: "すでにレビューしています。"
+    end
   end
 
   def edit
