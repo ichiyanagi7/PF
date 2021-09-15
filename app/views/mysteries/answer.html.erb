@@ -20,10 +20,13 @@
 
       <!--コメント機能-->
       <%= form_with(model:[@mystery,@comment],local:true) do |f| %>
-        <%= f.text_area :comment,rows:"10",placeholder:"コメントはこちら",class:"form-control border-dark" %>
+        <div class="form-group mt-5" id="rating-form">
+          <%= f.label :難易度 %><br>
+          <%= f.hidden_field :rate, :value => 'score' %>
+        </div>
+        <%= f.text_area :comment,rows:"7",placeholder:"コメントはこちら",class:"mt-3 form-control border-dark" %>
         <%= f.submit "送信" ,class:"form-control btn btn-outline-dark border-dark mt-2" %>
       <% end %>
-
         <p class="mt-5"><%= link_to "もっと謎を解く ≫" ,mysteries_path ,class:"btn btn-outline-dark btn-sm" %></p>
         <p class="mt-3"><%= link_to "戻る" ,mystery_path(@mystery) ,class:"btn btn-outline-dark btn-sm" %></p>
       </div>
@@ -44,10 +47,13 @@
 
         <!--コメント機能-->
       <%= form_with(model:[@mystery,@comment],local:true) do |f| %>
+        <div class="form-group mt-3" id="rating-form">
+          <%= f.label :難易度 %>
+          <%= f.hidden_field :rate, :value => 'score' %>
+        </div>
         <%= f.text_area :comment,rows:"7",placeholder:"コメントはこちら",class:"mt-3 form-control border-dark" %>
         <%= f.submit "送信" ,class:"form-control btn btn-outline-dark border-dark mt-2" %>
       <% end %>
-
         <p class="mt-3"><%= link_to "もっと謎を解く ≫" ,mysteries_path ,class:"btn btn-outline-dark btn-sm" %></p>
         <p class="mt-3"><%= link_to "戻る" ,mystery_path(@mystery) ,class:"btn btn-outline-dark btn-sm" %></p>
       </div>
@@ -56,3 +62,14 @@
 
   </div>
 </div>
+
+<!--難易度入力 jquery.raty.js用-->
+  <script>
+    $('#rating-form').raty({
+      starOn: "<%= asset_path('star-on.png') %>",
+      starHalf: "<%= asset_path("star-half.png") %>",
+      starOff: "<%= asset_path('star-off.png') %>",
+      scoreName: 'comment[rate]',
+      half: true,
+        });
+  </script>
