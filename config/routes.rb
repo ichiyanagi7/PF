@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
 
+  get 'rankings/index'
   devise_for :admins,skip:[:sessions],:controllers =>{
     :passwords => "admins/passwords"
   }
@@ -54,6 +55,7 @@ Rails.application.routes.draw do
   end
 
   get "search", to: "searches#search"
+  get "ranking", to: "rankings#index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

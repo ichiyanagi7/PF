@@ -1,3 +1,5 @@
+<!--いいね機能　部分テンプレート-->
+
 <% if mystery.favorited_by?(current_user) %>
   <%= link_to mystery_favorites_path(mystery),method: :delete,remote: true do %>
   <i class="fas fa-thumbs-up text-danger"></i>

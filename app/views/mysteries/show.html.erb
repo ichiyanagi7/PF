@@ -1,3 +1,5 @@
+<!--謎詳細ページ-->
+
 <div class="container">
   <div class="row">
     <div class="col-sm-12 mb-3">
@@ -15,7 +17,7 @@
       <span class="favorite-btn">
         <%= render "favorites/favorite-btn",mystery: @mystery %>
       </span>
-      
+
       </p>
     </div>
 
@@ -47,6 +49,7 @@
       </div>
     </div>
 
+    <!--コメント一覧-->
     <div class="col-sm-9 mt-5 mb-3">
       <h3 class="mb-3"><i class="far fa-comment"></i> コメント(全<%= @mystery.comments.count %>件)</h3>
       <% if @mystery.comments.blank? %>
