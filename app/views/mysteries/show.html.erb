@@ -57,7 +57,11 @@
       <% else %>
         <% @mystery.comments.each do |comment| %>
           <div class="media mb-3">
+            <% if comment.user.image.attached? %>
             <%= image_tag comment.user.image.variant(resize:"50x50") ,class:"align-self-start" %>
+            <% else %>
+            <%= image_tag "no_image.jpg",size:"50x50" %>
+            <% end %>
             <div class="media-body ml-3">
               <strong><%= link_to comment.user.name,user_path(comment.user) %></strong>
               <div id="review-rating-<%= comment.id %>">難易度: </div>
