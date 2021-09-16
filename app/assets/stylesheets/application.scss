@@ -32,3 +32,10 @@ main{
 .ranking-favorite{
   font-size:28px;
 }
+
+.hover{
+  background-color:white;
+}
+.hover:hover {
+  background-color:rgba(0,0,0,0.04);
+}
