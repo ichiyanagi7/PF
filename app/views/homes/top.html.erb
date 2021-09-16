@@ -28,7 +28,13 @@
         <%= link_to "もっと謎を探す ≫", mysteries_path,class:"text-dark" %>
     </div>
 
-    <%= render "layouts/mystery",mysteries: @mysteries %>
+    <div class=" col-sm-12 text-center">
+      <% if @mysteries.present? %>
+      <%= render "layouts/mystery",mysteries: @mysteries %>
+      <% else %>
+      <h5 class="mt-5">謎はありません。</h5>
+      <% end %>
+    </div>
 
   </div>
 </div>

@@ -1,0 +1,11 @@
+<% if mystery.favorited_by?(current_user) %>
+  <%= link_to mystery_favorites_path(mystery),method: :delete,remote: true do %>
+  <i class="fas fa-thumbs-up text-danger"></i>
+  <span class="text-dark"><%= mystery.favorites.count %></span>
+  <% end %>
+<% else %>
+  <%= link_to mystery_favorites_path(mystery),method: :post,remote: true do %>
+  <i class="far fa-thumbs-up text-dark"></i>
+  <span class="text-dark"><%= mystery.favorites.count %></span>
+  <% end %>
+<% end %>
