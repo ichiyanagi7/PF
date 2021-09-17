@@ -11,7 +11,7 @@
       <% @mysteries.each do |mystery| %>
         <%= link_to mystery_path(mystery) ,class:"text-dark" do %>
         <div class="media mb-3 hover border">
-          <%= image_tag mystery.question_image.variant(resize:"200x200") ,class:"align-self-start" %>
+          <%= image_tag mystery.question_image.variant(resize:"800x800") ,class:"align-self-start media-width" %>
           <div class="media-body text-center">
             <h2 class="mt-3"><%= i.to_i %>位</h2>
             <p class="ranking-favorite mt-4"><i class="far fa-thumbs-up"></i>: <%= mystery.favorites.count %></p>
@@ -30,7 +30,7 @@
         <%= link_to user_path(user) ,class:"text-dark" do %>
         <div class="media mb-3 hover border">
           <% if user.image.attached? %>
-          <%= image_tag user.image.variant(resize:"200x141") ,class:"align-self-start" %>
+          <%= image_tag user.image.variant(resize:"800x800") ,class:"align-self-start media-width" %>
           <% else %>
           <%= image_tag "no_image.jpg",size:"200x141" %>
           <% end %>
