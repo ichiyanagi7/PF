@@ -7,11 +7,12 @@
             <div class="card-body">
               <p class="card-text text-center text-dark border-bottom pb-3"><%= mystery.title %></p>
               <p class="card-text text-center text-dark">
-                <span id="review-rating-<%= mystery.id %>">難易度: </span> | <i class="far fa-thumbs-up"></i> <%= mystery.favorites.count %> | <i class="far fa-comment"></i> <%= mystery.comments.count %></p>
+                難易度: <span id="review-rating-<%= mystery.id %>"></span> | <i class="far fa-thumbs-up"></i> <%= mystery.favorites.count %> | <i class="far fa-comment"></i> <%= mystery.comments.count %></p>
             </div>
           </div>
           <!--難易度平均表示 jquery.raty.js------------------------------>
               <script>
+                $('#review-rating-<%= mystery.id %>').empty();
                 $('#review-rating-<%= mystery.id %>').raty({
                   starOff: "<%= asset_path('star-off.png') %>",
                   starOn: "<%= asset_path('star-on.png') %>",

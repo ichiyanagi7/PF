@@ -4,8 +4,8 @@
   <div class="row">
     <div class="col-sm-12 mb-3">
       <h1 class="under"><%= @mystery.title %></h1>
-      <span id="review-all-rating-<%= @mystery.id %>" class="mt-3">みんなの評価難易度 : </span>
-      <h3 class="mt-5">
+      <div>みんなの評価難易度: <span id="review-all-rating-<%= @mystery.id %>" class="mt-3"></span></div>
+      <h3 class="mt-3">
         <span class="badge badge-dark mr-3 center-block"><%= @mystery.genre.name %></span>
         Q. <%= @mystery.question %>
       </h3>
@@ -64,10 +64,11 @@
             <% end %>
             <div class="media-body ml-3">
               <strong><%= link_to comment.user.name,user_path(comment.user) %></strong>
-              <div id="review-rating-<%= comment.id %>">難易度: </div>
+              <div>難易度: <span id="review-rating-<%= comment.id %>"></span></div>
 
             <!--難易度表示 jquery.raty.js------------------------------>
               <script>
+                $("#review-rating-<%= comment.id %>").empty();
                 $('#review-rating-<%= comment.id %>').raty({
                   starOff: "<%= asset_path('star-off.png') %>",
                   starOn: "<%= asset_path('star-on.png') %>",
@@ -95,6 +96,7 @@
 
 <!--難易度平均表示 jquery.raty.js------------------------------>
     <script>
+      $("#review-all-rating-<%= @mystery.id %>").empty();
       $('#review-all-rating-<%= @mystery.id %>').raty({
         size: 50,
         starOff: "<%= asset_path('star-off.png') %>",
