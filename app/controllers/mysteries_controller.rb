@@ -2,10 +2,12 @@ class MysteriesController < ApplicationController
   def index
     @mysteries=Mystery.all.order(created_at: :desc)
     @genres=Genre.all
+    @tags=Mystery.tag_counts_on(:tags)
   end
 
   def show
     @mystery=Mystery.find(params[:id])
+    @tags=@mystery.tag_counts_on(:tags)
   end
 
   def new
@@ -43,7 +45,7 @@ class MysteriesController < ApplicationController
   private
 
   def mystery_params
-    params.require(:mystery).permit(:user_id ,:genre_id,:title,:question,:question_image,:answer,:description,:answer_image,:hint)
+    params.require(:mystery).permit(:user_id ,:genre_id,:title,:question,:question_image,:answer,:description,:answer_image,:hint,:tag_list,:name)
   end
 
 end

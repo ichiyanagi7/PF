@@ -45,6 +45,11 @@
       <%= f.label :ヒント %><br>
       <%= f.text_area :hint ,placeholder:"ヒントを記入してください",class:"form-control" %>
     </div>
+    
+    <div class="col-sm-8 form-group">
+      <%= f.label :タグ %><br>
+      <%= f.text_field :tag_list, value: @mystery.tag_list.join(',') ,class:"form-control" %>
+    </div>
 
     <div class="col-sm-5 form-group mt-3">
       <%= f.submit "変更を保存",class:"px-5 btn btn-success btn-lg" %>

@@ -19,6 +19,16 @@
       </span>
 
       </p>
+
+      <!--タグ表示-->
+      <% if @tags.present? %>
+      <i class="fas fa-tags"></i>
+        <% @tags.each do |tag| %>
+          <span class="badge"><%= tag.name %>(<%= tag.taggings.count %>)</span>
+        <% end %>
+      <% else %>
+        <p>登録されているタグはありません</p>
+      <% end %>
     </div>
 
     <div class="col-sm-9">
