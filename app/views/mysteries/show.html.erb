@@ -24,7 +24,7 @@
       <% if @tags.present? %>
       <i class="fas fa-tags"></i>
         <% @tags.each do |tag| %>
-          <span class="badge badge-warning"><%= link_to mysteries_path(tag: tag.name) do %>
+          <span class="badge badge-origin"><%= link_to mysteries_path(tag: tag.name) ,class:"text-dark" do %>
             <%= tag.name %>(<%= tag.taggings.count %>)
             <% end %>
           </span>
