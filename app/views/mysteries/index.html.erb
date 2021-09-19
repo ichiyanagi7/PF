@@ -1,4 +1,12 @@
 <div class="container">
+  <% if @tag_mysteries.present? %>
+  <div class="row">
+    <h3>"<%= @tag %>"に関する謎</h3>
+  </div>
+
+  <%= render "layouts/mystery",mysteries: @tag_mysteries %>
+
+  <% else %>
   <div class="row">
     <h3>全ての謎 (全<%= @mysteries.count %>件 <small>-新着順-</small>)</h3>
   </div>
@@ -8,4 +16,5 @@
 
   <%= render "layouts/mystery",mysteries: @mysteries %>
 
+  <% end %>
 </div>
