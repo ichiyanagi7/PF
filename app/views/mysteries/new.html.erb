@@ -61,7 +61,7 @@
     <div class="col-sm-9"></div>
 
     <div class="col-sm-5 form-group" id="datetime">
-      <%= f.label :公開日時 %><span> (※1時間おきに設定できます。)</span><br>
+      <%= f.label :公開日時 %><span class="small  badge badge-warning ml-2">必須</span><span> (※1時間おきに設定できます。)</span><br>
       <%= f.datetime_select :published_at, {:minute_step => 60},class:"form-contro" %>
     </div>
 

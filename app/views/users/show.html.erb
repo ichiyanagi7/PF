@@ -56,8 +56,8 @@
     <% @mysteries.each do |mystery| %>
       <div class="col-sm-12 col-md-4 mt-3">
         <%= link_to mystery_path(mystery) do %>
-          <div class="card">
-            <%= image_tag mystery.question_image ,class:"card-img-top" %>
+          <div class="card h-100">
+            <%= image_tag mystery.question_image ,class:"card-img-top card-height" %>
             <div class="card-body">
               <p class="card-text text-center text-dark border-bottom pb-3">
                 <%= mystery.title %>
