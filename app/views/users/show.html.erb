@@ -59,7 +59,14 @@
           <div class="card">
             <%= image_tag mystery.question_image ,class:"card-img-top" %>
             <div class="card-body">
-              <p class="card-text text-center text-dark border-bottom pb-3"><%= mystery.title %></p>
+              <p class="card-text text-center text-dark border-bottom pb-3">
+                <%= mystery.title %>
+                <% if mystery.status == "published" %>
+                (公開中)
+                <% else %>
+                (公開待ち)
+                <% end %>
+              </p>
               <p class="card-text text-center text-dark">
                 難易度: <span id="review-rating-<%= mystery.id %>"></span> | <i class="far fa-thumbs-up"></i> <%= mystery.favorites.count %> | <i class="far fa-comment"></i> <%= mystery.comments.count %></p>
 

@@ -70,8 +70,11 @@ gem 'font-awesome-sass', '~> 5.13'
 gem 'rspec-rails'
 gem "image_processing","~>1.2"
 gem "rails-i18n","~>5.1"
+gem 'enum_help'
+# タグ機能
 gem "acts-as-taggable-on"
-
+# バッチ処理
+gem "whenever", require: false
 
 # デプロイ
 gem 'dotenv-rails'

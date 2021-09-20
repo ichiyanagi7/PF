@@ -1,0 +1,7 @@
+ja:
+  enums:
+    mystery:
+      status:
+        published: "公開"
+        publish_wait: "公開待ち"
+

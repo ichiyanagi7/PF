@@ -19,4 +19,10 @@ class Mystery < ApplicationRecord
   def favorited_by?(user)
     favorites.where(user_id: user.id).exists?
   end
+
+  enum status: {
+    published: 0, #公開中
+    publish_wait: 1 #公開待ち
+  }
+
 end

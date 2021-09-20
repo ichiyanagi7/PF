@@ -51,9 +51,24 @@
       <%= f.text_field :tag_list, value: @mystery.tag_list.join(',') ,class:"form-control" %>
     </div>
 
-    <div class="col-sm-8 form-group">
-      <%= f.submit "投稿",class:"px-5 btn btn-success btn-lg" %>
+    <div class="col-sm-4"></div>
+
+    <div class="col-sm-3 form-group">
+      <%= f.label :公開設定 %><br>
+      <%= f.select :status, Mystery.statuses_i18n.invert,{prompt: false},class:"form-control" %>
     </div>
+
+    <div class="col-sm-9"></div>
+
+    <div class="col-sm-5 form-group" id="datetime">
+      <%= f.label :公開日時 %><span> (※1時間おきに設定できます。)</span><br>
+      <%= f.datetime_select :published_at, {:minute_step => 60},class:"form-contro" %>
+    </div>
+
+    <div class="col-sm-12 mt-3 form-group">
+      <%= f.submit "投稿",class:"px-5 btn btn-success" %>
+    </div>
+
   </div>
   <% end %>
 
