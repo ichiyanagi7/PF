@@ -24,6 +24,9 @@ class CommentsController < ApplicationController
   end
 
   def destroy
+    comment=Comment.find_by(mystery_id: params[:mystery_id],id: params[:id])
+    comment.destroy
+    redirect_to request.referer
   end
 
   private
