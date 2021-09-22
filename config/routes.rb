@@ -47,15 +47,13 @@ Rails.application.routes.draw do
   resources :mysteries do
     # コメント機能
     resources :comments,only:[:create,:update,:edit,:destroy]
-    # レビュー機能
-    resources :reviews,only:[:create]
-    get "reviews/complete",to:"reviews#complete"
+
     # お気に入り機能
     resource :favorites,only:[:create,:destroy]
   end
 
   get "search", to: "searches#search"
-  get "ranking", to: "rankings#index"
+  get "rankings", to: "rankings#index"
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

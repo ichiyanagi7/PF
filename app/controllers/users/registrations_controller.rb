@@ -50,7 +50,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   devise_parameter_sanitizer.permit(:account_update, keys: [:attribute])
   # end
 
-  # ログイン後のリダイレクト先
+  # サインアップ後のリダイレクト先
   def after_sign_up_path_for(resource)
     root_path(resource)
   end

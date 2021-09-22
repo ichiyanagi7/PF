@@ -19,7 +19,7 @@
       </span>
 
       </p>
-      
+
       <!--タグ表示-->
       <% if @tags.present? %>
       <i class="fas fa-tags"></i>
@@ -46,7 +46,7 @@
       <% else %>
       <p><a class="btn btn-outline-dark toggle-btn" data-toggle="collapse" href="#hint" role="button">ヒント<span class="small"> (クリックで表示)</span></a></p>
       <div class="collapse mb-5" id="hint" data-parent="#hint">
-        <h5 class="text-nowrap"><%= @mystery.hint %></h5>
+        <h5 class="hint-width"><%= @mystery.hint %></h5>
       </div>
       <% end %>
 
