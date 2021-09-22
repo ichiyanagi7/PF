@@ -53,9 +53,9 @@
 
     <div class="col-sm-4"></div>
 
-    <div class="col-sm-3 form-group">
+    <div class="col-sm-3 form-group" id="select">
       <%= f.label :公開設定 %><br>
-      <%= f.select :status, Mystery.statuses_i18n.invert,{prompt: false},class:"form-control" %>
+      <%= f.select :status, Mystery.statuses_i18n.invert,{prompt: false},class:"form-control select" %>
     </div>
 
     <div class="col-sm-9"></div>
@@ -73,3 +73,17 @@
   <% end %>
 
 </div>
+
+<!--公開設定によって公開時間を表示・非表示-->
+<script>
+  $("#datetime").hide();
+
+  $(".select").change(function(){
+    var select_val = $(".select").val();
+    if (select_val == "publish_wait"){
+      $("#datetime").show();
+    }else if(select_val == "published"){
+      $("#datetime").hide();
+    }
+  });
+</script>
