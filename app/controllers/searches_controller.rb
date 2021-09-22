@@ -1,4 +1,6 @@
 class SearchesController < ApplicationController
+  before_action :authenticate_user!
+  
   def search
     @value = params["search"]["value"] #ジャンル名
     @how = params["search"]["how"] #ジャンル

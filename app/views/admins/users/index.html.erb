@@ -4,13 +4,13 @@
   </div>
   <div class="row mt-5">
     <% @users.each do |user| %>
-      <div class="col-sm-3">
+      <div class="col-md-2 mb-3">
         <%= link_to admins_user_path(user) do %>
           <div class="card">
             <% if user.image.attached? %>
-              <%= image_tag user.image ,class:"card-img-top" %>
+              <%= image_tag user.image.variant(resize:"800x800") ,class:"card-img-top card-height-admin border" %>
             <% else %>
-              <%= image_tag "no_image.jpg",size:"auto" ,class:"card-img-top" %>
+              <%= image_tag "no_image2.png",size:"800x800" ,class:"card-img-top card-height-admin border" %>
             <% end %>
             <div class="card-body">
               <p class="card-text text-center text-dark"><%= user.name %></p>
@@ -20,5 +20,9 @@
       </div>
     <% end %>
     </div>
+
+    <div class="row justify-content-center">
+      <%= paginate @users %>
+    </div>
+
   </div>
-</div>

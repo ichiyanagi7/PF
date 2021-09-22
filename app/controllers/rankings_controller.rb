@@ -1,4 +1,6 @@
 class RankingsController < ApplicationController
+  before_action :authenticate_user!
+  
   def index
     # Mystery モデルからfavorited_usersの多い順に並び替え、先頭から10個取り出す
     @mysteries=Mystery.includes(:favorited_users).sort {|a,b|b.favorited_users.size <=> a.favorited_users.size}.first(10)

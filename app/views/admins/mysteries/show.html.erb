@@ -6,13 +6,13 @@
     <% if @mystery.question_image.attached? %>
       <div class="col-sm-12 col-md-4 card">
         <p class="card-text">問題画像</p>
-        <%= image_tag @mystery.question_image %>
+        <%= image_tag @mystery.question_image.variant(resize:"800x800"),class:"card-height mb-3" %>
       </div>
     <% end %>
     <% if @mystery.answer_image.attached? %>
       <div class="col-sm-12 col-md-4 card ml-5">
         <p class="card-text">解答画像</p>
-        <%= image_tag @mystery.answer_image,class:"card-img-bottom mb-3" %>
+        <%= image_tag @mystery.answer_image.variant(resize:"800x800"),class:"card-img-bottom card-height mb-3" %>
       </div>
     <% end %>
 
@@ -52,8 +52,12 @@
             <% if @mystery.hint.present? %>
             <td><%= @mystery.hint %></td>
             <% else %>
-            <td>ー</td>
+            <td>-</td>
             <% end %>
+          </tr>
+          <tr>
+            <td nowrap>お気に入り/コメント</td>
+            <td><i class="far fa-thumbs-up"></i> <%= @mystery.favorites.count %> / <i class="far fa-comment"></i> <%= @mystery.comments.count %></td>
           </tr>
           <tr>
             <td></td>
