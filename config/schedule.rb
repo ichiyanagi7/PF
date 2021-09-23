@@ -30,6 +30,10 @@ set :environment, rails_env
 
 # cronのログの吐き出し場所。ここでエラー内容を確認する
 set :output, "#{Rails.root}/log/cron.log"
+set :output, "log/cron.log"
+
+# --silentを解除し、ログを出力させる
+job_type :rake, 'cd :path && :environment_variable=:environment bundle exec rake :task :output'
 
 # 3時間ごとに[lib/tasks/check_date.rake]を実行する
 every 1.hours do
