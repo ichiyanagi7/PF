@@ -6,6 +6,6 @@ FactoryBot.define do
     password_confirmation {password}
     name {Faker::Lorem.characters(number:4)}
     introduction {Faker::Lorem.characters(number:20)}
-    image_id {faker::Lorem.characters(number:6)}
+    image_id {Faker::Lorem.characters(number:6)}
   end
 end
