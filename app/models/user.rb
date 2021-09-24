@@ -20,7 +20,7 @@ class User < ApplicationRecord
 
   has_many :reviews,dependent: :destroy
 
-  validates :name, uniqueness: true
+  validates :name, uniqueness: true, presence: true
 
 
   def follow(user_id)
