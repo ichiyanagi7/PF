@@ -78,6 +78,8 @@ gem 'enum_help'
 gem "acts-as-taggable-on"
 # バッチ処理
 gem "whenever", require: false
+# activestorage バリデーション
+gem 'activestorage-validator'
 
 # デプロイ
 gem 'dotenv-rails'

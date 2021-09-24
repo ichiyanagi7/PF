@@ -20,6 +20,7 @@
 //= require turbolinks
 //= require_tree .
 
+// トップ戻るボタン
 $(document).on('turbolinks:load', function() {
   $("#top-btn a").on("click",function(event){
     $("body, html").animate({
@@ -28,3 +29,4 @@ $(document).on('turbolinks:load', function() {
     event.preventDefault();
   });
 });
+

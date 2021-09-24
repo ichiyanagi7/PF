@@ -7,8 +7,11 @@ class CommentsController < ApplicationController
     comment.mystery_id=mystery.id
     comment_count=Comment.where(mystery_id: params[:mystery_id],user_id: current_user.id).count
     if comment_count < 1
-      comment.save
-      redirect_to mystery_path(mystery),notice: "レビューを投稿しました!"
+      if comment.save
+        redirect_to mystery_path(mystery),notice: "レビューを投稿しました!"
+      else
+        redirect_to request.referer,notice: "投稿に失敗しました。もう一度お願いします。"
+      end
     else
       redirect_to request.referer,notice: "すでにレビューしています。"
     end

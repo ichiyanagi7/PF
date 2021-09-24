@@ -23,4 +23,9 @@ class Mystery < ApplicationRecord
     publish_wait: 1 #公開待ち
   }
 
+  # バリデーション
+  validates :title, presence: true
+  validates :question, presence: true
+  validates :answer, presence: true
+  validates :question_image, presence: true, blob: { content_type: :image }
 end

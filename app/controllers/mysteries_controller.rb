@@ -1,6 +1,6 @@
 class MysteriesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
     @mysteries=Mystery.all.order(created_at: :desc)
     @genres=Genre.all
@@ -23,8 +23,12 @@ class MysteriesController < ApplicationController
   def create
     mystery=Mystery.new(mystery_params)
     mystery.user_id=current_user.id
-    mystery.save
-    redirect_to mystery_path(mystery)
+    if mystery.save
+      redirect_to mystery_path(mystery)
+    else
+      @mystery=mystery
+      render :new
+    end
   end
 
   def edit
