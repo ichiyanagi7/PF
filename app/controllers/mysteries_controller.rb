@@ -2,7 +2,7 @@ class MysteriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @mysteries=Mystery.all.order(created_at: :desc)
+    @mysteries=Mystery.where(status: "published").order(created_at: :desc)
     @genres=Genre.all
     @tags=Mystery.tag_counts_on(:tags).order("count DESC")
     # タグ検索用
