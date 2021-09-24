@@ -9,6 +9,7 @@
 
       <% i=1 %>
       <% @mysteries.each do |mystery| %>
+      <% if mystery.status == "published" %>
         <%= link_to mystery_path(mystery) ,class:"text-dark" do %>
         <div class="media mb-3 hover border">
           <%= image_tag mystery.question_image.variant(resize:"800x800") ,class:"align-self-start media-width" %>
@@ -17,6 +18,7 @@
             <p class="ranking-favorite mt-4"><i class="far fa-thumbs-up"></i>: <%= mystery.favorites.count %></p>
           </div>
         </div>
+        <% end %>
         <% end %>
         <% i+=1 %>
       <% end %>

@@ -54,6 +54,8 @@
 
   <% if @mysteries.present? %>
     <% @mysteries.each do |mystery| %>
+    <!--ログインユーザーの表示内容-->
+    <% if current_user == mystery.user %>
       <div class="col-sm-12 col-md-4 mt-3">
         <%= link_to mystery_path(mystery) do %>
           <div class="card h-100">
@@ -85,14 +87,48 @@
               </script>
           <!-------------------------------------------------------------->
 
-            <% if current_user == mystery.user %>
               <%= link_to "編集",edit_mystery_path(mystery),class:"btn btn-warning btn-sm" %>
               <%= link_to "削除",mystery_path(mystery),method: :delete ,data:{confirm:"本当に削除しますか？"},class:"btn btn-danger btn-sm ml-5" %>
-            <% end %>
             </div>
           </div>
         <% end %>
       </div>
+    <% else %>
+    <!--ログインユーザー以外の表示内容-->
+    <% if mystery.status == "published" %>
+    <div class="col-sm-12 col-md-4 mt-3">
+        <%= link_to mystery_path(mystery) do %>
+          <div class="card h-100">
+            <%= image_tag mystery.question_image ,class:"card-img-top card-height" %>
+            <div class="card-body">
+              <p class="card-text text-center text-dark border-bottom pb-3">
+                <%= mystery.title %>
+              </p>
+              <p class="card-text text-center text-dark">
+                難易度: <span id="review-rating-<%= mystery.id %>"></span> | <i class="far fa-thumbs-up"></i> <%= mystery.favorites.count %> | <i class="far fa-comment"></i> <%= mystery.comments.count %></p>
+
+
+          <!--難易度平均表示 jquery.raty.js------------------------------>
+              <script>
+                $("#review-rating-<%= mystery.id %>").empty();
+                $('#review-rating-<%= mystery.id %>').raty({
+                  starOff: "<%= asset_path('star-off.png') %>",
+                  starOn: "<%= asset_path('star-on.png') %>",
+                  starHalf: "<%= asset_path('star-half.png') %>",
+                  half: true,
+                  readOnly: true,
+                  score: "<%= mystery.comments.average(:rate).to_f.round(1) %>",
+                });
+              </script>
+          <!-------------------------------------------------------------->
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <% end %>
+      <% end %>
+
+
     <% end %>
 
   <% else %>
