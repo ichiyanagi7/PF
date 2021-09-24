@@ -27,5 +27,13 @@ class Mystery < ApplicationRecord
   validates :title, presence: true
   validates :question, presence: true
   validates :answer, presence: true
+  # active storage用バリデーション
   validates :question_image, presence: true, blob: { content_type: :image }
+  validate :published_at_check
+
+# 公開時間のバリデーション追加
+  def published_at_check
+      errors.add(:published_at,"は現在よりも遅い時間を選択してください。") if (self.status == "publish_wait") && (self.published_at < Time.zone.now)
+  end
+
 end

@@ -5,3 +5,12 @@ ja:
         published: "公開"
         publish_wait: "公開待ち"
 
+  activerecord:
+    attributes:
+      mystery:
+        title: タイトル
+        genre: ジャンル
+        question: 問題文
+        answer: 答え
+        question_image: 問題画像
+        published_at: 公開日時

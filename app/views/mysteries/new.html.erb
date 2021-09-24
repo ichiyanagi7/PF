@@ -5,6 +5,7 @@
   <span>※必須項目は必ず入力してください！</span>
 
   <%= form_with model: @mystery,url:mysteries_path,method: :post,local:true do |f| %>
+  <%= render "layouts/error_messages", model: f.object %>
   <div class="row mt-2">
     <div class="col-sm-8 form-group">
       <%= f.label :タイトル %><span class="small  badge badge-warning ml-2">必須</span>
