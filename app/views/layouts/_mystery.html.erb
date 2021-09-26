@@ -1,6 +1,6 @@
 <div class="row">
      <% mysteries.each do |mystery| %>
-     <% if mystery.status == "published" %>
+     <% if (mystery.status == "published") && (mystery.user.is_deleted == false) %>
       <div class="col-sm-12 col-md-4 mt-3">
         <%= link_to mystery_path(mystery) do %>
           <div class="card h-100 hover">
