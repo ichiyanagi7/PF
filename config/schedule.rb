@@ -26,11 +26,10 @@ require File.expand_path(File.dirname(__FILE__) + "/environment")
 # cronを実行する環境変数
 rails_env = ENV['RAILS_ENV'] || :development
 # cronを実行する環境変数をセット
-set :environment, rails_env
+set :environment, rails_env, :production
 
 # cronのログの吐き出し場所。ここでエラー内容を確認する
 set :output, "#{Rails.root}/log/cron.log"
-set :output, "log/cron.log"
 
 # --silentを解除し、ログを出力させる
 job_type :rake, 'cd :path && :environment_variable=:environment bundle exec rake :task :output'
