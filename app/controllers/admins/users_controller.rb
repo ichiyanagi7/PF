@@ -1,6 +1,6 @@
 class Admins::UsersController < ApplicationController
   before_action :authenticate_admin!
-  
+
   def index
     @users=User.page(params[:page]).per(10)
     @user_all=User.all
@@ -18,7 +18,7 @@ class Admins::UsersController < ApplicationController
   def update
     user=User.find(params[:id])
     user.update(user_params)
-    redirect_to root_path
+    redirect_to users_path
   end
 
   private
