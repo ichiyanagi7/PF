@@ -1,8 +1,16 @@
 <header class="mb-5">
   <div class="text-center">
-  <%= link_to root_path ,class:"navbar-brand" do %>
-    <%= image_tag "rogo.png" ,size:"350x100" %>
-  <% end %>
+    <% if admin_signed_in? %>
+      <%= link_to admins_mysteries_path ,class:"navbar-brand" do %>
+        <%= image_tag "rogo.png" ,size:"350x100" %>
+      <% end %>
+    <% else %>
+      <%= link_to root_path ,class:"navbar-brand" do %>
+        <%= image_tag "rogo.png" ,size:"350x100" %>
+      <% end %>
+    <% end %>
+
+
   </div>
 
   <nav class="navbar navbar-dark bg-dark justify-content-center">
