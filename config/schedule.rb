@@ -35,6 +35,6 @@ set :output, "#{Rails.root}/log/cron.log"
 # job_type :rake, 'cd :path && :environment_variable=:environment bundle exec rake :task :output'
 
 # 実行内容
-every 1.minute do
+every 1.hours do
   rake 'mystery_status:published'
 end
