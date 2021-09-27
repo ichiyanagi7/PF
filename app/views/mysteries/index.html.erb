@@ -6,6 +6,10 @@
 
   <%= render "layouts/mystery",mysteries: @tag_mysteries %>
 
+  <div class="row justify-content-center mt-5">
+    <%= paginate (@tag_mysteries), param_name: "tag_page" %>
+  </div>
+
   <% else %>
   <div class="row">
     <h3>全ての謎 (全<%= @mystery_all.count %>件 <small>-新着順-</small>)</h3>
@@ -16,10 +20,10 @@
 
   <%= render "layouts/mystery",mysteries: @mysteries %>
 
-  <% end %>
-
   <div class="row justify-content-center mt-5">
-    <%= paginate (@mysteries) %>
+    <%= paginate (@mysteries), param_name: "mysteries_page" %>
   </div>
+
+  <% end %>
 
 </div>
