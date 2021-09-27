@@ -3,6 +3,7 @@ class MysteriesController < ApplicationController
 
   def index
     @mysteries=Mystery.where(status: "published").order(created_at: :desc).page(params[:page]).per(9)
+    @mystery_all=Mystery.where(status: "published")
     @genres=Genre.all
     @tags=Mystery.tag_counts_on(:tags).order("count DESC")
     # タグ検索用
