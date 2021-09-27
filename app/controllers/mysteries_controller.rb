@@ -2,7 +2,7 @@ class MysteriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @mysteries=Mystery.where(status: "published").order(created_at: :desc).page(params[:page]).per(3)
+    @mysteries=Mystery.where(status: "published").order(created_at: :desc).page(params[:page]).per(9)
     @mystery_all=Mystery.where(status: "published")
     @genres=Genre.all
     @tags=Mystery.tag_counts_on(:tags).order("count DESC")
