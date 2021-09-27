@@ -34,7 +34,6 @@
 - 機能一覧は[こちら](https://docs.google.com/spreadsheets/d/1-K7XcrWlwL8EgBtSi1K99WE2NqWtKIuP09nBNab-HTo/edit?usp=sharing)
 - UI Flows(User側)は[こちら](https://drive.google.com/file/d/1NSEQPKyLqVldEAyoYKx9nGWtdiVNBvUU/view?usp=sharing)
 - UI Flows(admin側)は[こちら](https://drive.google.com/file/d/1E8cJwWuyQWNi3gQvVRIOQ7nIo-E3D8vZ/view?usp=sharing)
-- ER図は[こちら](https://drive.google.com/file/d/1Z1t427BeLVCVwx5kE4a7p-I8qxnAQfWg/view?usp=sharing)
 - テーブル定義書は[こちら](https://docs.google.com/spreadsheets/d/1w0lcOTKWH1BoCEFprmksiiPeU3NK2O4Y89ZITQJdvMU/edit?usp=sharing)
 - アプリケーション詳細設計書は[こちら](https://docs.google.com/spreadsheets/d/1IfItHug-_PJa_SacXCDYSLo7REtzZCEYX0WEbMpypzY/edit?usp=sharing)
 
@@ -49,6 +48,4 @@
 - IDE：Cloud9
 
 ## 使用素材
-- 外部サービスの画像素材・音声素材を使用した場合は、必ずサービス名とURLを明記してください。
-- 使用しない場合は、使用素材の項目をREADMEから削除してください。
-
+- Google Font : [RocknRoll One](https://fonts.google.com/share?selection.family=RocknRoll%20One%7CShippori%20Mincho:wght@600)

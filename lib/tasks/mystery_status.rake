@@ -6,5 +6,6 @@ namespace :mystery_status do
         mystery&.published!
       end
     end
+    puts Time.zone.now
   end
 end
