@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
   def show
     @user=User.find(params[:id])
-    @mysteries=@user.mysteries
+    @mysteries=@user.mysteries.page(params[:page]).per(9)
   end
 
   def edit
