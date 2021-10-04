@@ -93,12 +93,16 @@
               </script>
             <!--------------------------------------------------------->
 
-            <!--感情スコアが低いコメントを強調表示-->
+            <!--ログインユーザー = 謎ユーザーの時、感情スコアが低いコメントを強調表示-->
+            <% if current_user == comment.mystery.user %>
               <% if comment.score < 0 %>
                 <p class="fw-light text-danger"><%= comment.comment %></p>
               <% else %>
                 <p class="fw-light"><%= comment.comment %></p>
               <% end %>
+            <% else %>
+              <p class="fw-light"><%= comment.comment %></p>
+            <% end %>
 
             </div>
 
