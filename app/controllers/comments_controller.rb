@@ -1,5 +1,5 @@
 class CommentsController < ApplicationController
-  before_action :authenticate_user!
+  before_action :authenticate_any!,only:[:destroy]
 
   def create
     mystery=Mystery.find(params[:mystery_id])

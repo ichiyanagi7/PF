@@ -51,7 +51,7 @@
     <div class="row mt-3">
       <% if @user.mysteries.present? %>
         <% @user.mysteries.each do |mystery| %>
-         <div class="col-md-3">
+         <div class="col-md-3 mb-3">
           <%= link_to admins_mystery_path(mystery) do %>
             <div class="card">
               <% if mystery.question_image.attached? %>

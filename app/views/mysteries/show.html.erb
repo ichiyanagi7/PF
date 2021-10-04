@@ -100,7 +100,9 @@
                 <small>(感情スコア <%= comment.score %>)</small>
                 <% end %>
               </p>
+              
             </div>
+            
             <% if current_user == comment.user %>
               <%= link_to "編集",edit_mystery_comment_path(@mystery,comment),class:"btn btn-outline-dark btn-sm mr-3" %>
               <%= link_to "削除",mystery_comment_path(@mystery,comment),method: :delete ,class:"btn btn-danger btn-sm" %>

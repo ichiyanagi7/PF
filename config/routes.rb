@@ -15,6 +15,7 @@ Rails.application.routes.draw do
     resources :users,only:[:index,:show,:update,:edit]
     resources :mysteries,only:[:index,:show,:destroy]
     resources :genres,only:[:index,:create,:destroy]
+    resources :comments,only:[:index]
   end
 
   devise_for :users,skip:[:sessions],:controllers => {

@@ -1,0 +1,26 @@
+<div class="container">
+  <div class="row">
+    <div class="col-sm-9 mb-3">
+      <h3 class="mb-3">コメント管理</h3>
+      <p class="mb-5">※感情スコアの低いコメントは、マイナスなコメントの可能性があります。</p>
+      <% if @comments.blank? %>
+        <p>コメントはありません</p>
+      <% else %>
+      <% @comments.each do |comment| %>
+          <div class="media mb-3">
+            <% if comment.user.image.attached? %>
+            <%= image_tag comment.user.image.variant(resize:"50x50") ,class:"align-self-start" %>
+            <% else %>
+            <%= image_tag "no_image.jpg",size:"50x50" %>
+            <% end %>
+            <div class="media-body ml-3">
+              <strong><%= link_to comment.user.name,admins_user_path(comment.user) %> | (感情スコア <%= comment.score %>)</strong>
+              <p class="fw-light"><%= comment.comment %></p>
+            </div>
+            <%= link_to "削除",mystery_comment_path(comment.mystery,comment),method: :delete ,data: {confirm: "本当に削除しますか？"},class:"btn btn-danger btn-sm" %>
+          </div>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+</div>
