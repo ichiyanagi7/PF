@@ -93,16 +93,15 @@
               </script>
             <!--------------------------------------------------------->
 
-              <p class="fw-light">
-                <%= comment.comment %>
-                <!--ログインユーザ＝謎ユーザの時感情スコア表示-->
-                <% if current_user == comment.mystery.user %>
-                <small>(感情スコア <%= comment.score %>)</small>
-                <% end %>
-              </p>
-              
+            <!--感情スコアが低いコメントを強調表示-->
+              <% if comment.score < 0 %>
+                <p class="fw-light text-danger"><%= comment.comment %></p>
+              <% else %>
+                <p class="fw-light"><%= comment.comment %></p>
+              <% end %>
+
             </div>
-            
+
             <% if current_user == comment.user %>
               <%= link_to "編集",edit_mystery_comment_path(@mystery,comment),class:"btn btn-outline-dark btn-sm mr-3" %>
               <%= link_to "削除",mystery_comment_path(@mystery,comment),method: :delete ,class:"btn btn-danger btn-sm" %>
