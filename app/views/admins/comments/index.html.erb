@@ -15,7 +15,11 @@
             <% end %>
             <div class="media-body ml-3">
               <strong><%= link_to comment.user.name,admins_user_path(comment.user) %> | (感情スコア <%= comment.score %>)</strong>
-              <p class="fw-light"><%= comment.comment %></p>
+              <% if comment.score < 0 %>
+              <p class="fw-light text-danger"><%= comment.comment %></p>
+              <% else %>
+              <p class="fw-light text-danger"><%= comment.comment %></p>
+              <% end %>
             </div>
             <%= link_to "削除",mystery_comment_path(comment.mystery,comment),method: :delete ,data: {confirm: "本当に削除しますか？"},class:"btn btn-danger btn-sm" %>
           </div>
