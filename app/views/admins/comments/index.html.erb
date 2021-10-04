@@ -14,12 +14,13 @@
             <%= image_tag "no_image.jpg",size:"50x50" %>
             <% end %>
             <div class="media-body ml-3">
-              <strong><%= link_to comment.user.name,admins_user_path(comment.user) %> | (感情スコア <%= comment.score %>)</strong>
+              <strong><%= link_to comment.user.name,admins_user_path(comment.user) %> |
               <% if comment.score < 0 %>
-              <p class="fw-light text-danger"><%= comment.comment %></p>
+              (感情スコア <span class="text-danger"><%= comment.score %></span>)</strong>
               <% else %>
-              <p class="fw-light text-danger"><%= comment.comment %></p>
+              (感情スコア <%= comment.score %>)</strong>
               <% end %>
+              <p class="fw-light"><%= comment.comment %></p>
             </div>
             <%= link_to "削除",mystery_comment_path(comment.mystery,comment),method: :delete ,data: {confirm: "本当に削除しますか？"},class:"btn btn-danger btn-sm" %>
           </div>
