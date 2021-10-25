@@ -21,7 +21,7 @@ class Users::SessionsController < Devise::SessionsController
   protected
 
   def reject_inactive_user
-    @user=User.find_by(email: params[:user][:email])
+    @user = User.find_by(email: params[:user][:email])
     if @user
       if @user.valid_password?(params[:user][:password]) && @user.is_deleted
         flash[:alert] = "退会済みです。新規登録してください！"

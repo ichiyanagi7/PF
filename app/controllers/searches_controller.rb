@@ -5,8 +5,8 @@ class SearchesController < ApplicationController
     @value = params["search"]["value"] #ジャンル名
     how = params["search"]["how"] #ジャンル
     @datas = search_for(how, @value) #ジャンルで検索した謎
-    @genres=Genre.all
-    @mysteries=Mystery.where(status: "published")
+    @genres = Genre.all
+    @mysteries = Mystery.where(status: "published")
   end
 
   private

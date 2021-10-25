@@ -2,54 +2,54 @@ class MysteriesController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @mysteries=Mystery.where(status: "published").order(created_at: :desc).page(params[:mysteries_page]).per(9)
-    @mystery_all=Mystery.where(status: "published")
-    @genres=Genre.all
+    @mysteries = Mystery.where(status: "published").order(created_at: :desc).page(params[:mysteries_page]).per(9)
+    @mystery_all = Mystery.where(status: "published")
+    @genres = Genre.all
     # タグ検索用
-    if @tag=params[:tag]
-      @tag_mysteries=Mystery.tagged_with(params[:tag]).page(params[:tag_page]).per(9)
+    if @tag = params[:tag]
+      @tag_mysteries = Mystery.tagged_with(params[:tag]).page(params[:tag_page]).per(9)
     end
   end
 
   def show
-    @mystery=Mystery.find(params[:id])
-    @tags=@mystery.tag_counts_on(:tags)
+    @mystery = Mystery.find(params[:id])
+    @tags = @mystery.tag_counts_on(:tags)
   end
 
   def new
-    @mystery=Mystery.new
+    @mystery = Mystery.new
   end
 
   def create
-    mystery=Mystery.new(mystery_params)
-    mystery.user_id=current_user.id
+    mystery = Mystery.new(mystery_params)
+    mystery.user_id = current_user.id
     if mystery.save
       redirect_to mystery_path(mystery)
     else
-      @mystery=mystery
+      @mystery = mystery
       render :new
     end
   end
 
   def edit
-    @mystery=Mystery.find(params[:id])
+    @mystery = Mystery.find(params[:id])
   end
 
   def update
-    mystery=Mystery.find(params[:id])
+    mystery = Mystery.find(params[:id])
     mystery.update(mystery_params)
     redirect_to mystery_path(mystery)
   end
 
   def destroy
-    mystery=Mystery.find(params[:id])
+    mystery = Mystery.find(params[:id])
     mystery.destroy
     redirect_to request.referer
   end
 
   def answer
-    @mystery=Mystery.find(params[:id])
-    @comment=Comment.new
+    @mystery = Mystery.find(params[:id])
+    @comment = Comment.new
   end
 
   private
