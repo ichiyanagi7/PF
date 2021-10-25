@@ -1,11 +1,10 @@
 class FavoritesController < ApplicationController
   before_action :authenticate_user!
-  
+
   def index
-    @user=User.find(params[:user_id])
-    favorites=@user.favorites.pluck(:mystery_id)
+    user=User.find(params[:user_id])
+    favorites=user.favorites.pluck(:mystery_id)
     @mysteries=Mystery.where(id: favorites)
-    @genres=Genre.all
   end
 
   # 非同期通信

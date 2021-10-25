@@ -5,7 +5,6 @@ class MysteriesController < ApplicationController
     @mysteries=Mystery.where(status: "published").order(created_at: :desc).page(params[:mysteries_page]).per(9)
     @mystery_all=Mystery.where(status: "published")
     @genres=Genre.all
-    @tags=Mystery.tag_counts_on(:tags).order("count DESC")
     # タグ検索用
     if @tag=params[:tag]
       @tag_mysteries=Mystery.tagged_with(params[:tag]).page(params[:tag_page]).per(9)
