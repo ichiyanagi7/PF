@@ -8,7 +8,7 @@
 
     <% genres.each do |genre| %>
     <div class="col-sm-2">
-      <%= link_to search_path('search[value]': genre.name, 'search[how]': "genre"),class:"text-dark" do %>
+      <%= link_to search_path('search[value]': genre.name),class:"text-dark" do %>
         <%= genre.name %>(<%= genre.mysteries.where(status: "published").count %>)
       <% end %>
     </div>
